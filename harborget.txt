@@ -1,0 +1,11 @@
+=============================================================================
+Project ID: 1, Name: library
+, Create: 2024-06-27 08:42:00.860232 +0000 UTC
+
+拉取地址: docker pull http://39.100.108.90/library/nginx:latest
+=============================================================================
+Project ID: 2, Name: myweb
+, Create: 2024-06-27 09:33:11 +0000 UTC
+
+拉取地址: docker pull http://39.100.108.90/myweb/myadmin-lite-masterprod:v1.0
+拉取地址: docker pull http://39.100.108.90/myweb/webbuildprod:v1.0
