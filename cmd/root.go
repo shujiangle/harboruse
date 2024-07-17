@@ -45,8 +45,8 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	//rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	rootCmd.Flags().StringP("url", "l", "https://10.0.15.171", "输入你的URL")
-	rootCmd.Flags().StringP("username", "u", "admin", "输入你的用户名")
-	rootCmd.Flags().StringP("password", "p", "Harbor12345", "输入你的密码")
-	rootCmd.Flags().StringP("file", "f", "harborget.txt", "输入你要保存到哪个文件")
+	rootCmd.PersistentFlags().StringP("url", "l", "https://10.0.15.171", "输入你的URL")
+	rootCmd.PersistentFlags().StringP("username", "u", "admin", "输入你的用户名")
+	rootCmd.PersistentFlags().StringP("password", "p", "Harbor12345", "输入你的密码")
+	rootCmd.PersistentFlags().StringP("file", "f", "harborget.txt", "输入你要保存到哪个文件")
 }

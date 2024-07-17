@@ -10,7 +10,7 @@ import (
 )
 
 type Client struct {
-	baseURL    string
+	baseurl    string
 	username   string
 	password   string
 	httpClient *http.Client
@@ -32,12 +32,12 @@ type Repositorytag struct {
 	Name string `json:"name"`
 }
 
-func NewClient(baseURL, username, password string) *Client {
+func NewClient(baseurl, username, password string) *Client {
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
 	return &Client{
-		baseURL:    baseURL,
+		baseurl:    baseurl,
 		username:   username,
 		password:   password,
 		httpClient: &http.Client{Transport: tr},
@@ -46,7 +46,7 @@ func NewClient(baseURL, username, password string) *Client {
 }
 
 func (c *Client) GetProjects() ([]Project, error) {
-	apiURL := fmt.Sprintf("%s/api/projects", c.baseURL)
+	apiURL := fmt.Sprintf("%s/api/projects", c.baseurl)
 	req, err := http.NewRequest("GET", apiURL, nil)
 	if err != nil {
 		return nil, err
@@ -79,7 +79,7 @@ func (c *Client) GetProjects() ([]Project, error) {
 }
 
 func (c *Client) GetRepositories(projectID int) ([]Repository, error) {
-	apiURL := fmt.Sprintf("%s/api/repositories?project_id=%d", c.baseURL, projectID)
+	apiURL := fmt.Sprintf("%s/api/repositories?project_id=%d", c.baseurl, projectID)
 	req, err := http.NewRequest("GET", apiURL, nil)
 	if err != nil {
 		return nil, err
@@ -112,7 +112,7 @@ func (c *Client) GetRepositories(projectID int) ([]Repository, error) {
 }
 
 func (c *Client) GetRepositoriesTag(repositoriestag string) ([]Repositorytag, error) {
-	apiURL := fmt.Sprintf("%s/api/repositories/%v/tags", c.baseURL, repositoriestag)
+	apiURL := fmt.Sprintf("%s/api/repositories/%v/tags", c.baseurl, repositoriestag)
 	req, err := http.NewRequest("GET", apiURL, nil)
 	if err != nil {
 		return nil, err
